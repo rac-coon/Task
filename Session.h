@@ -18,12 +18,13 @@ private:
     float average = 0;
 public:
     std::stack<SessionNode*> get_session();
-    void set_session_id(int value);
+    void set_session_id(int value);  // EDIT: it is not recommeded to put id setters into public fields
     void add_session_object();
     std::stack<SessionNode*> get_session();
+    // EDIT: bad naming. remove_session, edit_session
     void remove_session_object();
     void edit_session_object();
-    void set_average();
+    void set_average();  // EDIT: setters should take arguments
     float get_average();
     void show_session();
 };
@@ -33,11 +34,13 @@ class SessionNode{
     std::string object_name;
     int object_mark;
 public:
+    // EDIT: all the definitions should be moved into .cpp file
     SessionNode(){
         node_id = 0;
         object_name = "null";
         object_mark = 0;
     }
+    // EDIT: bad naming. set_name, get_name, set_mark, get_mark, etc...
     void set_object_name(std::string name){
         this->object_name = name;
     }
