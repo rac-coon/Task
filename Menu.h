@@ -6,7 +6,7 @@
 
 class Student;
 class Menu : public Protection{
-    Student menu_student;
+    Student* menu_student;
 public:
     void show_menu();
     void menu_choice_main();
