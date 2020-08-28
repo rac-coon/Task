@@ -7,7 +7,7 @@
 
 class Session;
 class StudentNode;
-class Student{
+class Student : Protection{
 friend class Menu;
     std::vector<StudentNode*> students;
 public:

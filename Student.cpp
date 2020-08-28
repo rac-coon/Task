@@ -9,6 +9,18 @@ void Student::add_student(){
     ptr->set_student_data();
 }
 
+void Student::remove_student(){
+  if (!students.empty()){
+    for (int i = 0; i < students_count; i++){
+      std::cout << "[" << i+1 << "] "; students[i]->get_full_name();
+    }
+    std::cout << "Enter student's [id]" << std::endl;
+    int choosen_id =  int_protection(1,students_count);
+    students.erase(students.begin() + (choosen_id-1));
+  }
+  else {std::cout << "Nothing to remove!";}
+}
+
 std::vector<StudentNode*> Student::get_students(){
   return this->students;
 }
@@ -48,7 +60,7 @@ void StudentNode::edit_student_data(){
 }
 
 void StudentNode::get_full_name(){
-  std::cout << surname << middle_name << name << std::endl;
+  std::cout << this->surname << this->middle_name << this->name << std::endl;
 }
 
 void StudentNode::get_student_data(){

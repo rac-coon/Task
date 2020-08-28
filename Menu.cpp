@@ -7,7 +7,7 @@ void Menu::show_menu(){
     std::cout << "2. Edit student data" << std::endl;
     std::cout << "3. Add/Edit student's session" << std::endl;
     std::cout << "4. Show students data" << std::endl;
-    std::cout << "5. Remove student(s)" << std::endl;
+    std::cout << "5. Remove student" << std::endl;
     std::cout << "6. Data sorting" << std::endl;
     std::cout << "7. Save data to file" << std::endl;
     std::cout << "8. Load data from file" << std::endl;
@@ -76,10 +76,21 @@ void Menu::menu_choice_main(){
             else {std::cout << "Nothing to change!";}
             break;
         case 4:
-            std::cout << "4" << std::endl;
+            if (menu_student->students_count != 0){
+                for (int i = 0; i < menu_student->students_count(); i++}{
+                    std::cout << menu_student->students[i].get_student_data();
+                    for (int j = 0; j < menu_student->student[i]->sessions.size(); j++){
+                        menu_student->students[i]->sessions[j]->show_session();
+                    }
+                }
+            else {std::cout << "Nothing to show!";}
             break;
         case 5:
-            std::cout << "5" << std::endl;
+            if (menu_student->students_count != 0){
+                menu_student->remove_student();
+
+            }
+            else {std::cout << "Nothing to remove!";}
             break;
         case 6:
             std::cout << "6" << std::endl;
@@ -91,6 +102,7 @@ void Menu::menu_choice_main(){
             std::cout << "8" << std::endl;
             break;
     }
+    menu();
 }
 
 int Menu::choose_student() {

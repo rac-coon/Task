@@ -63,7 +63,7 @@ void Session::show_session(){
     SessionNode* temp;
     for (int i = 0; i < session.size(); i++){
         temp = session.top();
-        std::cout << "[" << i+1 << "] " << temp->get_object_name() << std::endl;
+        std::cout << "[" << i+1 << "] " << temp->get_object_name() << " " << temp->get_object_mark() << std::endl;
     }
 }
 
