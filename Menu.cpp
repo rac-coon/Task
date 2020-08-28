@@ -17,22 +17,22 @@ void Menu::menu_choice_main(){
     int value = int_protection(1,7);
     switch(value){
         case 1:
-            menu_student->add_student();
+            menu_student.add_student();
             break;
         case 2:
-            if (menu_student->students_count != 0){
+            if (menu_student.students_count != 0){
                 int chosen_id = choose_student();
-                std::vector<StudentNode*> temp_students = menu_student->get_students();
+                std::vector<StudentNode*> temp_students = menu_student.get_students();
                 StudentNode* temp_student = temp_students[chosen_id];
                 temp_student->edit_student_data();
             }
             else {std::cout << "Nothing to change!";}
             break;
         case 3:
-            if (menu_student->students_count != 0){
+            if (menu_student.students_count != 0){
                 int chosen_id = choose_student();
                 int chosen_action = 1;
-                std::vector<StudentNode*> temp_students = menu_student->get_students();
+                std::vector<StudentNode*> temp_students = menu_student.get_students();
                 StudentNode* temp_student = temp_students[chosen_id];
                 if (temp_student->session_count != 0){
                     std::cout << "[1] Add \n[2] Edit \n[3] Delete a student session?" << std::endl;
@@ -76,18 +76,22 @@ void Menu::menu_choice_main(){
             else {std::cout << "Nothing to change!";}
             break;
         case 4:
-            if (menu_student->students_count != 0){
-                for (int i = 0; i < menu_student->students_count(); i++}{
-                    std::cout << menu_student->students[i].get_student_data();
-                    for (int j = 0; j < menu_student->student[i]->sessions.size(); j++){
-                        menu_student->students[i]->sessions[j]->show_session();
+            if (menu_student.students_count != 0){
+                std::vector<StudentNode*> temp_students = menu_student.get_students();
+                StudentNode* temp_student;
+                for (int i = 0; i < menu_student.students_count; i++){
+                    temp_student = temp_students[i];
+                    for (int j = 0; j < temp_student->session_count; j++ ){
+                        std::vector<Session*> temp_session = temp_student->get_sessions();
+                        temp_session[j]->show_session();
                     }
                 }
+            }
             else {std::cout << "Nothing to show!";}
             break;
         case 5:
-            if (menu_student->students_count != 0){
-                menu_student->remove_student();
+            if (menu_student.students_count != 0){
+                menu_student.remove_student();
 
             }
             else {std::cout << "Nothing to remove!";}
@@ -102,19 +106,19 @@ void Menu::menu_choice_main(){
             std::cout << "8" << std::endl;
             break;
     }
-    menu();
+    menu_main();
 }
 
 int Menu::choose_student() {
   std::cout << "which student's data do you want to change?" << std::endl;
-  std::vector<StudentNode*> temp_students = menu_student->get_students();
+  std::vector<StudentNode*> temp_students = menu_student.get_students();
   StudentNode* temp_student;
   for (int i = 0; i < temp_students.size(); i++) {
     temp_student = temp_students[i];
     std::cout << "[" << i + 1 << "]";
     temp_student->get_full_name();
   }
-  int chosen_id = int_protection(1, menu_student->students_count);
+  int chosen_id = int_protection(1, menu_student.students_count);
   chosen_id--;
   return chosen_id;
 }

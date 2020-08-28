@@ -17,7 +17,6 @@ private:
     int int_protection(int from, int to) override;
     float average = 0;
 public:
-    std::stack<SessionNode*> get_session();
     void set_session_id(int value);  // EDIT: it is not recommeded to put id setters into public fields
     void add_session_object();
     std::stack<SessionNode*> get_session();

@@ -7,7 +7,7 @@
 
 class Session;
 class StudentNode;
-class Student : Protection{  // EDIT: add inheritance modifier here
+class Student : public Protection{
 friend class Menu;
     std::vector<StudentNode*> students;
 public:
@@ -15,13 +15,7 @@ public:
     void add_student();
     void remove_student();
     int students_count;
-    
-    // EDIT: add the implementation of destructor into .cpp file
-    ~Student(){
-        for (int i = 0; i < students_count; i++){
-                students[i]->sessions.clear();
-        }
-    }
+    ~Student();
 };
 
 class StudentNode : public Protection{
@@ -44,13 +38,13 @@ private:
     // Education
     std::vector<Session*> sessions;
     int id;
-    int get_id();  // EDIT: no reason to put both int id and int get_id() into private field
 public:
     int session_count;
     std::string data[12] = {
       "surname",      "middle name",    "name",          "sex",
       "day of birth", "month of birth", "year of birth", "year of admission",
       "faculty",      "department",     "group",         "student ID number"};
+    int get_id();
     void add_session();
     void remove_session();
     void set_student_data();  // EDIT: better create a separate public object for working with data: student.data.edit()  ; student.data.set();

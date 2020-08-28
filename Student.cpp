@@ -1,6 +1,12 @@
 #pragma once
 #include "Student.h"
 
+Student::~Student(){
+  for (int i = 0; i < students_count; i++){
+    students[i]->sessions.clear();
+  }
+}
+
 void Student::add_student(){
     StudentNode* ptr = new StudentNode();
     students.push_back(ptr);
@@ -90,22 +96,26 @@ void StudentNode::__student_data_edit(int i){
       case 3:
         std::cin >> this->sex;
         break;
-      case 4:
-        int temp = int_protection(1,30); 
-        this->b_day = temp;
-        break;
-      case 5:
-        int temp = int_protection(1,12);
-        this->b_month = temp;
-        break;
-      case 6:
-        int temp = int_protection(1940,2004);
-        this->b_year = temp;
-        break;
-      case 7:
-        int temp = int_protection(this->b_year,this->b_year + 16);
-        std::cin >> this->enter_year;
-        break;
+      case 4:{
+          int temp = int_protection(1,30); 
+          this->b_day = temp;
+          break;
+        }
+      case 5:{
+          int temp = int_protection(1,12);
+          this->b_month = temp;
+          break;
+        }
+      case 6:{
+          int temp = int_protection(1940,2004);
+          this->b_year = temp;
+          break;
+        }
+      case 7:{
+          int temp = int_protection(this->b_year,this->b_year + 16);
+          std::cin >> this->enter_year;
+          break;
+        }
       case 8:
         std::cin >> this->faculty;
         break;
