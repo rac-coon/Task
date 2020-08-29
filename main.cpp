@@ -7,6 +7,5 @@
 int main(){
     Menu* menu;
     menu->menu_main();
-    system("pause");
     return 0;
 }

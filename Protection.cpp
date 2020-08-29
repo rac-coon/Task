@@ -11,8 +11,8 @@ int Protection::int_protection(){
 }
 
 int Protection::int_protection(int from, int to){
-    if (from < to){
-        std::cout << "Protection error: From less then To" << std::endl; // debug
+    if (from > to){
+        std::cout << "Protection error: To less then From" << std::endl; // debug
     }
     int range_value = 0;
     while((range_value < from) || (range_value > to)){

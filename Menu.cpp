@@ -11,6 +11,7 @@ void Menu::show_menu(){
     std::cout << "6. Data sorting" << std::endl;
     std::cout << "7. Save data to file" << std::endl;
     std::cout << "8. Load data from file" << std::endl;
+    std::cout << "9. Exit" << std::endl;
 };
 
 void Menu::menu_choice_main(){
@@ -92,7 +93,6 @@ void Menu::menu_choice_main(){
         case 5:
             if (this->menu_student->students_count != 0){
                 this->menu_student->remove_student();
-
             }
             else {std::cout << "Nothing to remove!";}
             break;
@@ -105,8 +105,12 @@ void Menu::menu_choice_main(){
         case 8:
             std::cout << "8" << std::endl;
             break;
+        case 9:
+            goto end;
     }
     menu_main();
+    end:
+    std::cout << "Goodbye" << std::endl;
 }
 
 int Menu::choose_student() {
