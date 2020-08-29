@@ -10,12 +10,16 @@ class StudentNode;
 class Student : public Protection{
 friend class Menu;
     std::vector<StudentNode*> students;
+    void delete_sessions();
 public:
+    int int_protection(int from, int to) override;
     std::vector<StudentNode*> get_students();
     void add_student();
     void remove_student();
     int students_count;
-    ~Student();
+    ~Student(){
+        delete_sessions();
+    }
 };
 
 class StudentNode : public Protection{

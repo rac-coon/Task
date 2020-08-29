@@ -1,11 +1,5 @@
 #include "Student.h"
 
-Student::~Student(){
-  for (int i = 0; i < students_count; i++){
-    students[i]->sessions.clear();
-  }
-}
-
 void Student::add_student(){
     StudentNode* ptr = new StudentNode();
     students.push_back(ptr);
@@ -79,6 +73,12 @@ void StudentNode::get_student_data(){
 
 int StudentNode::get_id(){
   return this->id;;
+}
+
+void Student::delete_sessions(){
+  for (int i = 0; i < this->students_count; i++){
+    this->students[i]->sessions.clear();
+  }
 }
 
 void StudentNode::__student_data_edit(int i){
