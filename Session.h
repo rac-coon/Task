@@ -1,5 +1,6 @@
 #pragma once
 #include <stack>
+#include <string>
 #include <iostream>
 #include <vector>
 #include "Protection.h"
@@ -12,11 +13,9 @@ friend class Menu;
 private:
     int session_id;
     std::stack<SessionNode*> session;
-    int int_protection() override;
-    std::string string_protection() override;
-    int int_protection(int from, int to) override;
     float average = 0;
 public:
+    std::string string_protection() override;
     void set_session_id(int value);  // EDIT: it is not recommeded to put id setters into public fields
     void add_session_object();
     std::stack<SessionNode*> get_session();
@@ -29,6 +28,7 @@ public:
 };
 
 class SessionNode{
+private:
     int node_id;
     std::string object_name;
     int object_mark;

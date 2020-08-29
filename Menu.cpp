@@ -122,3 +122,8 @@ int Menu::choose_student() {
   chosen_id--;
   return chosen_id;
 }
+
+void Menu::menu_main(){
+    this->show_menu();
+    this->menu_choice_main();
+}

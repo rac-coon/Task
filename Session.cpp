@@ -14,16 +14,6 @@ std::stack<SessionNode*> Session::get_session(){
     return this->session;
 }
 
-std::string Session::string_protection(){
-    std::string name;
-    while (name.size() < 5){
-        std::cin.clear();
-        std::cin >> name;
-        std::cout << "Incorrect value, try again" << std::endl;
-    }
-    return name;
-}
-
 void Session::set_average(){
     std::stack<SessionNode*> temp_stack = this->session;
     SessionNode* temp_element;
@@ -120,4 +110,14 @@ void Session::edit_session_object(){
 
 void Session::set_session_id(int value){
     this->session_id = value;
+}
+
+std::string Session::string_protection(){
+    std::string name;
+    while (name.size() < 5){
+        std::cin.clear();
+        std::cin >> name;
+        std::cout << "Incorrect value, try again" << std::endl;
+    }
+    return name;
 }

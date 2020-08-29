@@ -21,3 +21,13 @@ int Protection::int_protection(int from, int to){
     }
     return range_value;
 }
+
+std::string string_protection(){
+    std::string name;
+    while (name.size() < 5){
+        std::cin.clear();
+        std::cin >> name;
+        std::cout << "Incorrect value, try again" << std::endl;
+    }
+    return name;
+}
