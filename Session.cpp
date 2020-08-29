@@ -1,4 +1,3 @@
-#pragma once
 #include "Session.h"
 
 void Session::add_session_object(){

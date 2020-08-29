@@ -1,4 +1,3 @@
-#pragma once
 #include "Protection.h"
 
 int Protection::int_protection(){
